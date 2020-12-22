@@ -1,0 +1,55 @@
+<h2>Invoice Ninja Kunder</h2>
+<div class="row" style="position: absolute; right: 100px;">  
+  <input type="button" mat-button class="" color="accent" (click)="TransferData()" value="Synchronize"/>  
+      <br>  
+</div>  
+      <br>  
+<mat-paginator class="pagnacolor" [pageSizeOptions]="[10, 15, 20, 30]"
+      showFirstLastButtons> </mat-paginator>
+    
+
+<div class="container" >  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="margin: 0 auto; width: 80%;">
+      
+      <ng-container matColumnDef="select">
+        <th style="width: 100px;" mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        [aria-label]="checkboxLabel(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>      
+     
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Navn </th>
+          <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+        </ng-container>
+      
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>      
+        
+        <!-- Status Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container> 
+  
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div> 
