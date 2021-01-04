@@ -17,8 +17,8 @@ namespace Economic
             {
                 return new Dictionary<string, string>()
                {
-                    { "X-AppSecretToken", "lT13QiMvnYdDOjIMNx5hwbCTpUtKbwUyk0J9K3BjEKo1"},
-                    {"X-AgreementGrantToken" , "oIHRXORapYyj0P4PlMMIEGPJAY1B9t7lBKqbTZ5BNyQ1"}
+                    { "X-AppSecretToken", ""},
+                    {"X-AgreementGrantToken" , ""}
                };
             }
         }
